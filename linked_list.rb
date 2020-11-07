@@ -111,6 +111,19 @@ class LinkedList
       at(idx - 1).next = res
     end
   end
+
+  def remove_at(idx)
+    return nil if idx >= size - 1
+
+    if idx.zero?
+      @head = @head.next
+    elsif idx == size - 2
+      @tail = at(idx - 1)
+      @tail.next = nil
+    else
+      at(idx - 1).next = at(idx).next
+    end
+  end
 end
 
 class Node
