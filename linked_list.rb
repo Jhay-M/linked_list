@@ -98,6 +98,19 @@ class LinkedList
       i += 1
     end
   end
+
+  def insert_at(val, idx)
+    res = create_node(val)
+    res.next = at(idx)
+    if idx.zero?
+      @head = res
+    elsif idx == size - 1
+      at(idx - 1).next = res
+      @tail = res
+    else
+      at(idx - 1).next = res
+    end
+  end
 end
 
 class Node
@@ -117,4 +130,4 @@ jhay.append('d')
 jhay.append('e')
 jhay.append('f')
 
-jhay.to_s
+p jhay
